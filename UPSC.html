@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UPSC Ledger | Mains Intelligence</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+  --navy: #0d1726;
+  --navy2: #142238;
+  --cream: #f5f1e8;
+  --paper: #fffdf8;
+  --gold: #c89b4a;
+  --text: #172235;
+  --muted: #697386;
+  --line: #e5dfd2;
+  --green: #47755b;
+  --red: #a74d45;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--cream);
+  color: var(--text);
+  font-family: "DM Sans", sans-serif;
+}
+
+/* NAVBAR */
+
+.navbar {
+  height: 76px;
+  background: var(--navy);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #27354a;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  width: 37px;
+  height: 37px;
+  border: 1px solid var(--gold);
+  display: grid;
+  place-items: center;
+  color: var(--gold);
+  font-family: Georgia, serif;
+  font-weight: bold;
+}
+
+.brand-name {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+}
+
+.nav-links a {
+  color: #dce2eb;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.nav-links a:hover {
+  color: var(--gold);
+}
+
+.nav-button {
+  border: 1px solid #506078;
+  color: white;
+  padding: 9px 15px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+/* HERO */
+
+.hero {
+  background: var(--navy);
+  color: white;
+  padding: 90px 7% 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero:after {
+  content: "UPSC";
+  position: absolute;
+  right: -40px;
+  bottom: -90px;
+  font-family: "Playfair Display", serif;
+  font-size: 240px;
+  color: rgba(255,255,255,.025);
+  font-weight: bold;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+
+.hero h1 {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(45px, 6vw, 78px);
+  line-height: 1.02;
+  max-width: 900px;
+  margin: 18px 0;
+}
+
+.hero p {
+  color: #b9c2d0;
+  max-width: 680px;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 12px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.hero-meta span {
+  border: 1px solid #33445c;
+  padding: 9px 13px;
+  border-radius: 4px;
+  color: #d9dfe8;
+  font-size: 12px;
+}
+
+/* MAIN */
+
+.container {
+  width: 86%;
+  max-width: 1250px;
+  margin: auto;
+}
+
+.section {
+  padding: 70px 0;
+}
+
+.section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.section-head h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 36px;
+}
+
+.section-head p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* NEWS */
+
+.news-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 18px;
+}
+
+.news-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 25px;
+  min-height: 220px;
+  transition: .2s;
+}
+
+.news-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 35px rgba(20,30,40,.08);
+}
+
+.featured {
+  grid-row: span 2;
+  min-height: 460px;
+  background: var(--navy2);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.tag {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 1.4px;
+  font-weight: 700;
+  padding: 6px 9px;
+  background: #eee6d4;
+  color: #695027;
+  border-radius: 3px;
+  margin-bottom: 18px;
+}
+
+.featured .tag {
+  background: #293a52;
+  color: #e3bd75;
+}
+
+.news-card h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 25px;
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.featured h3 {
+  font-size: 36px;
+}
+
+.news-card p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.featured p {
+  color: #b8c2d1;
+}
+
+.card-footer {
+  margin-top: 22px;
+  font-size: 11px;
+  color: #8992a0;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* GS STRIP */
+
+.gs-strip {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  border: 1px solid var(--line);
+  background: var(--paper);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.gs {
+  padding: 25px;
+  border-right: 1px solid var(--line);
+}
+
+.gs:last-child {
+  border-right: none;
+}
+
+.gs-number {
+  font-size: 11px;
+  color: var(--gold);
+  font-weight: bold;
+}
+
+.gs h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 23px;
+  margin: 7px 0;
+}
+
+.gs p {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* REVIEW */
+
+.review-section {
+  background: var(--navy);
+  color: white;
+  padding: 75px 0;
+}
+
+.review-layout {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 50px;
+}
+
+.review-section h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 43px;
+}
+
+.review-section > .container > .review-layout > div > p {
+  color: #aeb9c9;
+  margin-top: 12px;
+}
+
+.score {
+  margin-top: 35px;
+}
+
+.score-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.score-row span:first-child {
+  width: 100px;
+  font-size: 12px;
+}
+
+.bar {
+  height: 6px;
+  flex: 1;
+  background: #2c3b50;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.bar div {
+  height: 100%;
+  background: var(--gold);
+}
+
+.score-row strong {
+  width: 35px;
+  font-size: 12px;
+}
+
+.review-box {
+  background: #142238;
+  border: 1px solid #2d3c52;
+  border-radius: 10px;
+  padding: 30px;
+}
+
+.review-box small {
+  color: var(--gold);
+  letter-spacing: 1px;
+}
+
+.review-box h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  margin: 12px 0;
+}
+
+.review-box p {
+  color: #aeb9c9;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* ANSWER */
+
+.answer {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 32px;
+  border-radius: 10px;
+}
+
+.answer-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.answer h3 {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+  line-height: 1.4;
+}
+
+.answer-framework {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 10px;
+}
+
+.framework {
+  border: 1px solid var(--line);
+  padding: 14px;
+  border-radius: 6px;
+}
+
+.framework strong {
+  display: block;
+  font-size: 12px;
+}
+
+.framework span {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* FOOTER */
+
+footer {
+  background: #080f19;
+  color: #8993a2;
+  padding: 35px 7%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+/* MOBILE */
+
+@media(max-width: 850px) {
+
+  .nav-links {
+    display: none;
+  }
+
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured {
+    min-height: 360px;
+  }
+
+  .gs-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .gs {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .review-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .answer-framework {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 550px) {
+
+  .hero {
+    padding: 65px 7% 75px;
+  }
+
+  .hero h1 {
+    font-size: 45px;
+  }
+
+  .gs-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .gs {
+    border-right: none;
+  }
+
+  .section {
+    padding: 50px 0;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header class="navbar">
+
+  <div class="brand">
+    <div class="brand-mark">U</div>
+    <div class="brand-name">UPSC Ledger</div>
+  </div>
+
+  <nav class="nav-links">
+    <a href="#current">Current Affairs</a>
+    <a href="#papers">Paper Reviews</a>
+    <a href="#answers">Answer Writing</a>
+  </nav>
+
+  <a class="nav-button" href="#answers">Daily Practice</a>
+
+</header>
+
+
+<section class="hero">
+
+  <div class="eyebrow">MONDAY • 24 AUGUST 2026</div>
+
+  <h1>
+    Read the news.<br>
+    Think like a Mains candidate.
+  </h1>
+
+  <p>
+    A focused daily briefing of the issues that matter for UPSC.
+    Syllabus connections, arguments, examples and answer-writing
+    frameworks, without the information avalanche.
+  </p>
+
+  <div class="hero-meta">
+    <span>GS I</span>
+    <span>GS II</span>
+    <span>GS III</span>
+    <span>GS IV</span>
+    <span>Essay</span>
+  </div>
+
+</section>
+
+
+<section class="section" id="current">
+
+<div class="container">
+
+  <div class="section-head">
+    <div>
+      <h2>Today's Brief</h2>
+      <p>Five minutes. The important stuff.</p>
+    </div>
+  </div>
+
+
+  <div class="news-grid">
+
+    <article class="news-card featured">
+
+      <div>
+        <span class="tag">GS-II • GOVERNANCE</span>
+
+        <h3>
+          Institutional reform and the challenge of effective governance
+        </h3>
+
+        <p>
+          What today's policy developments tell us about accountability,
+          implementation and citizen-centric governance.
+        </p>
+
+        <div class="card-footer">
+          <span>12 min read</span>
+          <span>HIGH PRIORITY</span>
+        </div>
+      </div>
+
+    </article>
+
+
+    <article class="news-card">
+
+      <span class="tag">GS-III</span>
+
+      <h3>India's growth story and emerging economic challenges</h3>
+
+      <p>
+        Key concepts, data points and possible Mains dimensions.
+      </p>
+
+      <div class="card-footer">
+        <span>Economy</span>
+        <span>8 min</span>
+      </div>
+
+    </article>
+
+
+    <article class="news-card">
+
+      <span class="tag">GS-II</span>
+
+      <h3>India and the changing global order</h3>
+
+      <p>
+        Strategic interests, diplomacy and India's foreign policy choices.
+      </p>
+
+      <div class="card-footer">
+        <span>IR</span>
+        <span>7 min</span>
+      </div>
+
+    </article>
+
+
+    <article class="news-card">
+
+      <span class="tag">GS-III</span>
+
+      <h3>Climate policy beyond targets</h3>
+
+      <p>
+        Connect environmental developments with governance and
+        sustainable development.
+      </p>
+
+      <div class="card-footer">
+        <span>Environment</span>
+        <span>6 min</span>
+      </div>
+
+    </article>
+
+
+    <article class="news-card">
+
+      <span class="tag">ESSAY</span>
+
+      <h3>Technology, society and the future of work</h3>
+
+      <p>
+        Arguments and examples that can travel across multiple essay themes.
+      </p>
+
+      <div class="card-footer">
+        <span>Essay</span>
+        <span>5 min</span>
+      </div>
+
+    </article>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<div class="container">
+
+  <div class="section-head">
+    <div>
+      <h2>Syllabus Map</h2>
+      <p>Every story needs a syllabus connection.</p>
+    </div>
+  </div>
+
+
+  <div class="gs-strip">
+
+    <div class="gs">
+      <span class="gs-number">01</span>
+      <h3>GS-I</h3>
+      <p>Society · History · Geography · Culture</p>
+    </div>
+
+    <div class="gs">
+      <span class="gs-number">02</span>
+      <h3>GS-II</h3>
+      <p>Polity · Governance · Social Justice · IR</p>
+    </div>
+
+    <div class="gs">
+      <span class="gs-number">03</span>
+      <h3>GS-III</h3>
+      <p>Economy · Environment · Science · Security</p>
+    </div>
+
+    <div class="gs">
+      <span class="gs-number">04</span>
+      <h3>GS-IV</h3>
+      <p>Ethics · Integrity · Aptitude · Case Studies</p>
+    </div>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<section class="review-section" id="papers">
+
+<div class="container">
+
+  <div class="review-layout">
+
+    <div>
+
+      <span class="eyebrow">MAINS PAPER REVIEW</span>
+
+      <h2>How difficult was the paper?</h2>
+
+      <p>
+        Don't just count questions. Understand what the paper
+        demanded from a serious candidate.
+      </p>
+
+      <div class="score">
+
+        <div class="score-row">
+          <span>Difficulty</span>
+          <div class="bar"><div style="width:78%"></div></div>
+          <strong>7.8</strong>
+        </div>
+
+        <div class="score-row">
+          <span>Current Affairs</span>
+          <div class="bar"><div style="width:64%"></div></div>
+          <strong>6.4</strong>
+        </div>
+
+        <div class="score-row">
+          <span>Conceptual</span>
+          <div class="bar"><div style="width:83%"></div></div>
+          <strong>8.3</strong>
+        </div>
+
+        <div class="score-row">
+          <span>Time Pressure</span>
+          <div class="bar"><div style="width:88%"></div></div>
+          <strong>8.8</strong>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="review-box">
+
+      <small>EDITOR'S TAKE</small>
+
+      <h3>
+        The paper rewarded depth over memorisation.
+      </h3>
+
+      <p>
+        Candidates who connected static concepts with contemporary
+        examples had a clear advantage. Several questions demanded
+        balanced arguments rather than one-sided explanations.
+      </p>
+
+    </div>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<section class="section" id="answers">
+
+<div class="container">
+
+  <div class="section-head">
+
+    <div>
+      <h2>Today's Mains Question</h2>
+      <p>Think first. Write second.</p>
+    </div>
+
+  </div>
+
+
+  <div class="answer">
+
+    <div class="answer-top">
+      <span class="tag">GS-II • 10 MARKS • 150 WORDS</span>
+      <span>⏱ 7 MIN</span>
+    </div>
+
+    <h3>
+      Effective governance requires not merely strong institutions,
+      but institutions capable of delivering outcomes.
+      Discuss.
+    </h3>
+
+
+    <div class="answer-framework">
+
+      <div class="framework">
+        <strong>INTRO</strong>
+        <span>Define governance</span>
+      </div>
+
+      <div class="framework">
+        <strong>CORE</strong>
+        <span>Institutional role</span>
+      </div>
+
+      <div class="framework">
+        <strong>CHALLENGES</strong>
+        <span>Implementation gap</span>
+      </div>
+
+      <div class="framework">
+        <strong>WAY FORWARD</strong>
+        <span>Reforms + conclusion</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+  <span>© 2026 UPSC Ledger</span>
+
+  <span>
+    Current Affairs • Mains • Answer Writing
+  </span>
+
+</footer>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1JQNNHB24B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1JQNNHB24B');
+</script>
+</body>
+</html>
